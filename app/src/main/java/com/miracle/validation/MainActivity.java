@@ -6,11 +6,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.validationutility.NumberToWordConverter;
 import com.validationutility.Validation;
 
 
@@ -29,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatButton email_validation;
     private EditText et_email;
 
+    //Number to Word Convert
+    private AppCompatButton convert_validation;
+    private EditText et_convert_number;
+    private TextView tv_result;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
         simpleteNumValidation();
         countryCodeNumValidation();
         emailValidation();
+        numberToWordConvert();
+    }
+
+    private void numberToWordConvert() {
+        convert_validation.setOnClickListener(v -> {
+            String inputNumber = et_convert_number.getText().toString();
+            String result = NumberToWordConverter.convertCountToWord(inputNumber);
+            tv_result.setText(result);
+        });
     }
 
     private void emailValidation() {
@@ -100,6 +116,9 @@ public class MainActivity extends AppCompatActivity {
         country_code = findViewById(R.id.country_code);
         et_email = findViewById(R.id.et_email);
         email_validation = findViewById(R.id.email_validation);
+        convert_validation = findViewById(R.id.convert_validation);
+        et_convert_number = findViewById(R.id.et_convert_number);
+        tv_result = findViewById(R.id.tv_result);
     }
 
 }

@@ -24,21 +24,23 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginHorizontal="@dimen/_15sdp"
-                    android:textSize="@dimen/_15ssp"
-                    android:gravity="center"
-                    android:layout_marginVertical="@dimen/_15sdp"
-                    android:text="Simple Phone Number Validation"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:fontFamily="@font/heading"
+                    android:gravity="center"
+                    android:text="Simple Phone Number Validation"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp" />
 
                 <EditText
                     android:id="@+id/et_phone_number"
-                    android:layout_width="@dimen/_200sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
                     android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/reg"
                     android:gravity="center"
                     android:hint="Enter Phone Number."
                     android:inputType="phone"
@@ -52,9 +54,11 @@
                     android:layout_gravity="center"
                     android:layout_marginVertical="@dimen/_15sdp"
                     android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/bold"
                     android:paddingHorizontal="@dimen/_10sdp"
                     android:paddingVertical="@dimen/_3sdp"
-                    android:text="Check Validation" />
+                    android:text="Check Validation"
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
 
@@ -70,15 +74,15 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_15ssp"
-                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_15sdp"
                     android:layout_marginVertical="@dimen/_15sdp"
+                    android:fontFamily="@font/heading"
+                    android:gravity="center"
                     android:text="Country Code with Phone Number Validation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -88,17 +92,22 @@
 
                     <Spinner
                         android:id="@+id/country_code"
-                        android:layout_width="@dimen/_80sdp"
+                        android:layout_width="match_parent"
                         android:layout_height="@dimen/_45sdp"
                         android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_weight="7"
                         android:background="@drawable/btn_shape"
-                        android:entries="@array/country_codes" />
+                        android:entries="@array/country_codes"
+                        android:fontFamily="@font/reg" />
 
                     <EditText
                         android:id="@+id/et_phone_number1"
-                        android:layout_width="@dimen/_180sdp"
+                        android:layout_width="match_parent"
                         android:layout_height="@dimen/_45sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_weight="3"
                         android:background="@drawable/btn_shape"
+                        android:fontFamily="@font/reg"
                         android:gravity="center"
                         android:hint="Enter Phone Number."
                         android:inputType="phone"
@@ -114,9 +123,11 @@
                     android:layout_gravity="center"
                     android:layout_marginVertical="@dimen/_15sdp"
                     android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/bold"
                     android:paddingHorizontal="@dimen/_10sdp"
                     android:paddingVertical="@dimen/_3sdp"
-                    android:text="Check Validation" />
+                    android:text="Check Validation"
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
 
@@ -132,25 +143,27 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginHorizontal="@dimen/_15sdp"
-                    android:textSize="@dimen/_15ssp"
-                    android:gravity="center"
-                    android:layout_marginVertical="@dimen/_15sdp"
-                    android:text="Email Validation"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:fontFamily="@font/heading"
+                    android:gravity="center"
+                    android:text="Email Validation"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp" />
 
                 <EditText
                     android:id="@+id/et_email"
-                    android:layout_width="@dimen/_280sdp"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
                     android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/reg"
                     android:gravity="center"
-                    android:singleLine="true"
                     android:hint="Enter Email ID."
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
                     android:textSize="@dimen/_14ssp" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -160,11 +173,81 @@
                     android:layout_gravity="center"
                     android:layout_marginVertical="@dimen/_15sdp"
                     android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/bold"
                     android:paddingHorizontal="@dimen/_10sdp"
                     android:paddingVertical="@dimen/_3sdp"
-                    android:text="Check Validation" />
+                    android:text="Check Validation"
+                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:fontFamily="@font/heading"
+                    android:gravity="center"
+                    android:text="Number To Word Converter"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp" />
+
+                <EditText
+                    android:id="@+id/et_convert_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/reg"
+                    android:gravity="center"
+                    android:hint="Enter Amount."
+                    android:inputType="numberDecimal"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_14ssp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/convert_validation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/bold"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:text="Convert"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:id="@+id/tv_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:alpha="0.8"
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
 
         </LinearLayout>
 
