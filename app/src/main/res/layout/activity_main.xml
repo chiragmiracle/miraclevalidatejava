@@ -160,6 +160,7 @@
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:background="@drawable/btn_shape"
                     android:fontFamily="@font/reg"
+                    android:paddingHorizontal="@dimen/_10sdp"
                     android:gravity="center"
                     android:hint="Enter Email ID."
                     android:inputType="textEmailAddress"
@@ -211,7 +212,8 @@
                     android:background="@drawable/btn_shape"
                     android:fontFamily="@font/reg"
                     android:gravity="center"
-                    android:hint="Enter Amount."
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:hint="Enter Number."
                     android:inputType="numberDecimal"
                     android:maxLength="10"
                     android:singleLine="true"
@@ -248,6 +250,113 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:fontFamily="@font/heading"
+                    android:gravity="center"
+                    android:text="Word To Number Converter"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp" />
+
+                <EditText
+                    android:id="@+id/et_convert_word"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/reg"
+                    android:gravity="center"
+                    android:hint="Enter Word."
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_14ssp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/convert_word_validation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/bold"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:text="Convert"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:id="@+id/tv_word_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:alpha="0.8"
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:fontFamily="@font/heading"
+                    android:gravity="center"
+                    android:text="@string/how_many_time_date_ago"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/select_DateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/bold"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:text="@string/select_date_time"
+                    android:textSize="@dimen/_12ssp" />
+
+                <TextView
+                    android:id="@+id/dateTime_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:alpha="0.8"
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

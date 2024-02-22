@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.widget.EditText;
 
+import java.util.Calendar;
 import java.util.regex.Matcher;
 
 public class Validation {
@@ -50,6 +51,34 @@ public class Validation {
             return false;
         }
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    public static String compareDateTime(Calendar selectedDateTime, Calendar currentDateTime) {
+        long diffMillis = currentDateTime.getTimeInMillis() - selectedDateTime.getTimeInMillis();
+        long seconds = diffMillis / 1000;
+        long minutes = seconds / 60;
+        long hours = minutes / 60;
+        long days = hours / 24;
+
+        long remainingHours = hours % 24;
+        long remainingMinutes = minutes % 60;
+        long remainingSeconds = seconds % 60;
+
+        StringBuilder builder = new StringBuilder();
+        if (days > 0) {
+            builder.append(days).append(" days, ");
+        }
+        if (remainingHours > 0) {
+            builder.append(remainingHours).append(" hours, ");
+        }
+        if (remainingMinutes > 0) {
+            builder.append(remainingMinutes).append(" minutes, ");
+        }
+        if (remainingSeconds > 0) {
+            builder.append(remainingSeconds).append(" seconds");
+        }
+
+        return builder.toString();
     }
 
 }

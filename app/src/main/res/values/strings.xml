@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Miracle Validation</string>
+    <string name="how_many_time_date_ago"><![CDATA[Time & Date Compare to ago]]></string>
+    <string name="select_date_time"><![CDATA[Select Date & Time]]></string>
 </resources>

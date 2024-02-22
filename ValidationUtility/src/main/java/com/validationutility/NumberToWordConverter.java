@@ -3,71 +3,51 @@ package com.validationutility;
 import android.text.TextUtils;
 
 public class NumberToWordConverter {
-
-    private static final String[] UNITS = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-    private static final String[] TEENS = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
-    private static final String[] TENS = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
-    private static final String[] THOUSANDS = {"", "Thousand", "Million", "Billion"};
+    private static final String[] units = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    private static final String[] teens = {"", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    private static final String[] tens = {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+    private static final String[] thousands = {"", "Thousand", "Million", "Billion"};
 
     public static String convertCountToWord(String number) {
-        if (TextUtils.isEmpty(number)) {
+        if (number == null || number.isEmpty())
             return "Please enter a valid number";
-        }
-
-        number = number.trim();
 
         try {
             long num = Long.parseLong(number);
-
-            if (num < 0 || num > 999_999_999_999L) {
-                return "Number out of range";
-            }
-
-            if (num == 0) {
+            if (num == 0)
                 return "Zero";
-            }
-
-            StringBuilder result = new StringBuilder();
 
             int scale = 0;
+            StringBuilder result = new StringBuilder();
 
             while (num > 0) {
-                int lastThreeDigits = (int) (num % 1000);
-                if (lastThreeDigits != 0) {
-                    result.insert(0, convertThreeDigitsToWord(lastThreeDigits) + THOUSANDS[scale] + " ");
+                if (num % 1000 != 0) {
+                    StringBuilder groupResult = new StringBuilder();
+                    convertThreeDigitsToWord((int) (num % 1000), groupResult);
+                    result.insert(0, groupResult.append(thousands[scale]).append(" "));
                 }
                 num /= 1000;
                 scale++;
             }
-
             return result.toString().trim();
         } catch (NumberFormatException e) {
             return "Invalid number format";
         }
     }
 
-    private static String convertThreeDigitsToWord(int num) {
-        StringBuilder result = new StringBuilder();
-
-        int hundredDigit = num / 100;
-        if (hundredDigit > 0) {
-            result.append(UNITS[hundredDigit]).append(" Hundred ");
+    private static void convertThreeDigitsToWord(int number, StringBuilder result) {
+        if (number >= 100) {
+            result.append(units[number / 100]).append(" Hundred ");
+            number %= 100;
         }
-
-        int lastTwoDigits = num % 100;
-        if (lastTwoDigits < 10) {
-            result.append(UNITS[lastTwoDigits]);
-        } else if (lastTwoDigits < 20) {
-            result.append(TEENS[lastTwoDigits - 10]);
-        } else {
-            int tensDigit = lastTwoDigits / 10;
-            result.append(TENS[tensDigit]);
-            int unitDigit = lastTwoDigits % 10;
-            if (unitDigit > 0) {
-                result.append(" ").append(UNITS[unitDigit]);
-            }
+        if (number >= 11 && number <= 19) {
+            result.append(teens[number - 10]).append(" ");
+        } else if (number >= 20 || number == 10) {
+            result.append(tens[number / 10]).append(" ");
+            number %= 10;
         }
-
-        return result.toString().trim();
+        if (number > 0 && number < 10) {
+            result.append(units[number]).append(" ");
+        }
     }
 }
