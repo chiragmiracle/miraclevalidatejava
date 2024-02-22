@@ -6,6 +6,122 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:textSize="@dimen/_15ssp"
+                    android:gravity="center"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:text="Simple Phone Number Validation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/et_phone_number"
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:background="@drawable/btn_shape"
+                    android:gravity="center"
+                    android:hint="Enter Phone Number."
+                    android:inputType="phone"
+                    android:maxLength="13"
+                    android:textSize="@dimen/_14ssp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/num_validation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@drawable/btn_shape"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:text="Check Validation" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_15ssp"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:text="Country Code with Phone Number Validation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/country_code"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:background="@drawable/btn_shape"
+                        android:entries="@array/country_codes" />
+
+                    <EditText
+                        android:id="@+id/et_phone_number1"
+                        android:layout_width="@dimen/_180sdp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:background="@drawable/btn_shape"
+                        android:gravity="center"
+                        android:hint="Enter Phone Number."
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:textSize="@dimen/_14ssp" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/num_validation1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@drawable/btn_shape"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:text="Check Validation" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
