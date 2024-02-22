@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatButton num_validation1;
     private Spinner country_code;
 
+    //simple Phone number validation
+    private AppCompatButton email_validation;
+    private EditText et_email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +37,21 @@ public class MainActivity extends AppCompatActivity {
         initView();
         simpleteNumValidation();
         countryCodeNumValidation();
+        emailValidation();
+    }
+
+    private void emailValidation() {
+        email_validation.setOnClickListener(v -> {
+            if (TextUtils.isEmpty(et_email.getText().toString())) {
+                Toast.makeText(getApplicationContext(), "Enter Email ID", Toast.LENGTH_LONG).show();
+            } else {
+                if (Validation.validateEmail(et_email.getText().toString())) {
+                    Toast.makeText(getApplicationContext(), "Valid Email", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Invalid Email", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     private void countryCodeNumValidation() {
@@ -79,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
         et_phone_number1 = findViewById(R.id.et_phone_number1);
         num_validation1 = findViewById(R.id.num_validation1);
         country_code = findViewById(R.id.country_code);
+        et_email = findViewById(R.id.et_email);
+        email_validation = findViewById(R.id.email_validation);
     }
 
 }

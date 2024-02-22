@@ -120,6 +120,52 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:textSize="@dimen/_15ssp"
+                    android:gravity="center"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:text="Email Validation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="@dimen/_280sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:background="@drawable/btn_shape"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:hint="Enter Email ID."
+                    android:inputType="text"
+                    android:textSize="@dimen/_14ssp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/email_validation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@drawable/btn_shape"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:text="Check Validation" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>

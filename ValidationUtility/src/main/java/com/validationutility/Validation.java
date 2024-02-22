@@ -2,9 +2,19 @@ package com.validationutility;
 
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
+import android.util.Patterns;
+import android.widget.EditText;
+
+import java.util.regex.Matcher;
 
 public class Validation {
 
+    public static boolean isEmptyEditText(EditText etText) {
+        //If edittext is NULL
+        if (etText == null)
+            return true;
+        return etText.getText().toString().trim().isEmpty();
+    }
 
     public static boolean validatePhoneNumber(String phoneNumber) {
         // If phone is empty
@@ -22,27 +32,24 @@ public class Validation {
     }
 
     public static boolean validatePhoneNumber(String countryCode, String phoneNumber) {
-        // Remove any non-numeric characters from phone number
         String normalizedPhoneNumber = PhoneNumberUtils.stripSeparators(phoneNumber);
-
-        // Remove any non-numeric characters from country code
         String normalizedCountryCode = PhoneNumberUtils.stripSeparators(countryCode);
-
-        // Check if the country code or phone number is empty or null
         if (normalizedCountryCode == null || normalizedCountryCode.isEmpty() ||
                 normalizedPhoneNumber == null || normalizedPhoneNumber.isEmpty()) {
             return false;
         }
-
-        // Check if the country code or phone number is too short or too long
         if (normalizedCountryCode.length() < 1 || normalizedCountryCode.length() > 3 ||
                 normalizedPhoneNumber.length() < 5 || normalizedPhoneNumber.length() > 15) {
             return false;
         }
-
-        // Additional custom validation logic can be added here if needed
-        // If all checks pass, return true
         return true;
+    }
+
+    public static boolean validateEmail(String email) {
+        if (email == null || email.isEmpty()) {
+            return false;
+        }
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
 }
