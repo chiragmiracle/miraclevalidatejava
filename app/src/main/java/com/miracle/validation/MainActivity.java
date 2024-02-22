@@ -15,10 +15,14 @@ import com.validationutility.Validation;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    //simple Phone number validation
     private AppCompatButton num_validation;
-    private AppCompatButton num_validation1;
     private EditText et_phone_number;
+
+    //country code with  Phone number validation
     private EditText et_phone_number1;
+    private AppCompatButton num_validation1;
     private Spinner country_code;
 
     @Override
@@ -27,26 +31,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initView();
+        simpleteNumValidation();
+        countryCodeNumValidation();
+    }
 
-        num_validation.setOnClickListener(v -> {
-            if (TextUtils.isEmpty(et_phone_number.getText().toString())) {
-                Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_LONG).show();
-            } else {
-                if (Validation.validatePhoneNumber(et_phone_number.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "Valid Phone Number", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Invalid Phone Number", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-
+    private void countryCodeNumValidation() {
         // Set up the spinner with country codes
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.country_codes, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.country_codes, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         country_code.setAdapter(adapter);
-
         // Set up click listener for the validate button
         num_validation1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +57,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    private void simpleteNumValidation() {
+        num_validation.setOnClickListener(v -> {
+            if (TextUtils.isEmpty(et_phone_number.getText().toString())) {
+                Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_LONG).show();
+            } else {
+                if (Validation.validatePhoneNumber(et_phone_number.getText().toString())) {
+                    Toast.makeText(getApplicationContext(), "Valid Phone Number", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Invalid Phone Number", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     private void initView() {
