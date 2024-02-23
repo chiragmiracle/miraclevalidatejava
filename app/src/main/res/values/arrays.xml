@@ -5,6 +5,11 @@
         <item>+44 (UK)</item>
     </string-array>
 
+    <string-array name="country_numtoword">
+        <item>US</item>
+        <item>IN</item>
+    </string-array>
+
     <string-array name="conversion_units">
         <item>billion</item>
         <item>crore</item>
@@ -14,5 +19,32 @@
         <item>million</item>
         <item>thousand</item>
         <item>trillion</item>
+    </string-array>
+
+    <string-array name="units_array">
+        <item>Tonne</item>
+        <item>Kilogram</item>
+        <item>Gram</item>
+        <item>Milligram</item>
+        <item>Microgram</item>
+        <item>Imperial Ton</item>
+        <item>US Ton</item>
+        <item>Stone</item>
+        <item>Pound</item>
+        <item>Ounce</item>
+    </string-array>
+
+    <string-array name="length_array">
+        <item>Kilometer</item>
+        <item>Meter</item>
+        <item>Centimeter</item>
+        <item>Millimeter</item>
+        <item>Micrometer</item>
+        <item>Nanometer</item>
+        <item>Mile</item>
+        <item>Yard</item>
+        <item>Foot</item>
+        <item>Inch</item>
+        <item>Nautical Mile</item>
     </string-array>
 </resources>

@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.validationutility.IN_NumberToWord;
 import com.validationutility.NumberToWordConverter;
 import com.validationutility.Validation;
 import com.validationutility.WordToNumberConverter;
@@ -30,6 +32,18 @@ import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    //Number to Word Convert
+    private AppCompatButton mass_convert;
+    private EditText mass_et1;
+    private TextView mass_et2;
+    Spinner mass_sp1, mass_sp2;
+
+    //Number to Word Convert
+    private AppCompatButton length_convert;
+    private EditText length_et1;
+    private TextView length_et2;
+    Spinner length_sp1, length_sp2;
 
     //simple Phone number validation
     private AppCompatButton num_validation;
@@ -53,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatButton convert_word_validation;
     private EditText et_convert_word;
     private TextView tv_word_result;
+    Spinner country_numtoword;
+    String str_numtoword;
 
     //Number to Word Convert
     private AppCompatButton select_DateTime;
@@ -74,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initView();
+        MassConverter();
+        lengthConverter();
         simpleteNumValidation();
         countryCodeNumValidation();
         emailValidation();
@@ -83,9 +101,48 @@ public class MainActivity extends AppCompatActivity {
         numberConvert();
     }
 
-    private void numberConvert() {
+    private void lengthConverter() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.conversion_units, android.R.layout.simple_spinner_item);
+                R.array.length_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        length_sp1.setAdapter(adapter);
+        length_sp2.setAdapter(adapter);
+
+        length_convert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String fromUnit = length_sp1.getSelectedItem().toString();
+                String toUnit = length_sp2.getSelectedItem().toString();
+                double length_str = Double.parseDouble(length_et1.getText().toString());
+                String result;
+                result = String.valueOf(Validation.LengthConvert(length_str, fromUnit, toUnit));
+                length_et2.setText(result);
+            }
+        });
+    }
+
+    private void MassConverter() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.units_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mass_sp1.setAdapter(adapter);
+        mass_sp2.setAdapter(adapter);
+
+        mass_convert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String fromUnit = mass_sp1.getSelectedItem().toString();
+                String toUnit = mass_sp2.getSelectedItem().toString();
+                String mass_str = mass_et1.getText().toString();
+                String result;
+                result = String.valueOf(Validation.MassConvert(mass_str, fromUnit, toUnit));
+                mass_et2.setText(result);
+            }
+        });
+    }
+
+    private void numberConvert() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.conversion_units, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         num_sp1.setAdapter(adapter);
         num_sp2.setAdapter(adapter);
@@ -174,10 +231,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void numberToWordConvert() {
+        country_numtoword.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        str_numtoword = "1";
+                        break;
+                    case 1:
+                        str_numtoword = "2";
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.country_numtoword, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        country_numtoword.setAdapter(adapter);
+        String spinner_str = country_numtoword.getSelectedItem().toString();
         convert_validation.setOnClickListener(v -> {
             String inputNumber = et_convert_number.getText().toString();
-            String result = NumberToWordConverter.convertCountToWord(inputNumber);
-            tv_result.setText(result);
+            if (str_numtoword.equals("2")) {
+                String result = IN_NumberToWord.convertCountToWord(inputNumber);
+                tv_result.setText(result);
+            } else {
+                String result = NumberToWordConverter.convertCountToWord(inputNumber);
+                tv_result.setText(result);
+            }
         });
     }
 
@@ -234,6 +317,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        mass_convert = findViewById(R.id.mass_convert);
+        mass_et1 = findViewById(R.id.mass_et1);
+        mass_sp1 = findViewById(R.id.mass_sp1);
+        mass_sp2 = findViewById(R.id.mass_sp2);
+        mass_et2 = findViewById(R.id.mass_et2);
+
+        length_convert = findViewById(R.id.length_convert);
+        length_et1 = findViewById(R.id.length_et1);
+        length_sp1 = findViewById(R.id.length_sp1);
+        length_sp2 = findViewById(R.id.length_sp2);
+        length_et2 = findViewById(R.id.length_et2);
+
         et_phone_number = findViewById(R.id.et_phone_number);
         num_validation = findViewById(R.id.num_validation);
         et_phone_number1 = findViewById(R.id.et_phone_number1);
@@ -246,6 +341,7 @@ public class MainActivity extends AppCompatActivity {
         tv_result = findViewById(R.id.tv_result);
         et_convert_word = findViewById(R.id.et_convert_word);
         convert_word_validation = findViewById(R.id.convert_word_validation);
+        country_numtoword = findViewById(R.id.country_numtoword);
         tv_word_result = findViewById(R.id.tv_word_result);
         select_DateTime = findViewById(R.id.select_DateTime);
         dateTime_result = findViewById(R.id.dateTime_result);

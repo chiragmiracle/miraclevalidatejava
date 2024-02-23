@@ -9,6 +9,19 @@ import java.util.Calendar;
 
 public class Validation {
 
+    private static double[][] conversionMatrix = {
+            {1, 1000, 1000000, 1000000000, 1000000000000.0, 0.9842065286, 1.1023113109, 157.4730444178, 2204.6226218488, 35273.96194958},
+            {0.001, 1, 1000, 1000000, 1000000000, 0.0009842065, 0.0011023113, 0.1574730444, 2.2046226218, 35.2739619496},
+            {0.000001, 0.001, 1, 1000, 1000000, 0.0000009842, 0.0000011023, 0.000157473, 0.0022046226, 0.0352739619},
+            {0.000000001, 0.000001, 0.001, 1, 1000, 0.000000001, 0.0000000011, 0.0000001575, 0.0000022046, 0.000035274},
+            {0.000000000001, 0.000000001, 0.000001, 0.001, 1, 0.000000000001, 0.0000000000011, 0.0000000001575, 0.0000000022046, 0.000000035274},
+            {1.016e-6, 0.0010160469, 0.0010160469, 1.0160469088, 1016.0469088, 1, 1.12, 160, 2240, 35840},
+            {0.90718474, 907.18474, 907184.74, 907184740, 9.0718474e+11, 0.8928571429, 1, 142.8571428571, 2000, 32000},
+            {0.00635029318, 6.35029318, 6350.29318, 6350293.18, 6.35029318e+9, 0.00625, 0.007, 1, 14, 224},
+            {0.00045359237, 0.45359237, 453.59237, 453592.37, 453592370, 0.0004464286, 0.0005, 0.0714285714, 1, 16},
+            {0.00002834952, 0.0283495231, 28.349523125, 28349.523125, 28349523.125, 2.7777777778e-5, 3.125e-5, 0.0044642857, 0.0625, 1}
+    };
+
     public static boolean isEmptyEditText(EditText etText) {
         //If edittext is NULL
         if (etText == null)
@@ -151,4 +164,210 @@ public class Validation {
                 return 1;
         }
     }
+
+    public static double MassConvert(String mass_str, String fromUnit, String toUnit) {
+        int fromIndex = getIndexFromUnit(fromUnit);
+        int toIndex = getIndexFromUnit(toUnit);
+        double inputValue = Double.parseDouble(mass_str);
+        return inputValue * conversionMatrix[fromIndex][toIndex];
+    }
+
+    public static int getIndexFromUnit(String unit) {
+        switch (unit) {
+            case "Tonne":
+                return 0;
+            case "Kilogram":
+                return 1;
+            case "Gram":
+                return 2;
+            case "Milligram":
+                return 3;
+            case "Microgram":
+                return 4;
+            case "Imperial Ton":
+                return 5;
+            case "US Ton":
+                return 6;
+            case "Stone":
+                return 7;
+            case "Pound":
+                return 8;
+            case "Ounce":
+                return 9;
+            default:
+                return -1;
+        }
+    }
+
+
+    public static double LengthConvert(double value, String fromUnit, String toUnit) {
+        double meterValue = 0.0;
+        switch (fromUnit) {
+            case "Kilometer":
+                meterValue = value * 1000.0;
+                break;
+            case "Meter":
+                meterValue = value;
+                break;
+            case "Centimeter":
+                meterValue = value * 0.01;
+                break;
+            case "Millimeter":
+                meterValue = value * 0.001;
+                break;
+            case "Micrometer":
+                meterValue = value * 0.000001;
+                break;
+            case "Nanometer":
+                meterValue = value * 0.000000001;
+                break;
+            case "Mile":
+                meterValue = value * 1609.344;
+                break;
+            case "Yard":
+                meterValue = value * 0.9144;
+                break;
+            case "Foot":
+                meterValue = value * 0.3048;
+                break;
+            case "Inch":
+                meterValue = value * 0.0254;
+                break;
+            case "Nautical Mile":
+                meterValue = value * 1852.0;
+                break;
+        }
+
+        // Convert meters to the desired output unit
+        double result = 0.0;
+        switch (toUnit) {
+            case "Kilometer":
+                result = meterValue / 1000.0;
+                break;
+            case "Meter":
+                result = meterValue;
+                break;
+            case "Centimeter":
+                result = meterValue / 0.01;
+                break;
+            case "Millimeter":
+                result = meterValue / 0.001;
+                break;
+            case "Micrometer":
+                result = meterValue / 0.000001;
+                break;
+            case "Nanometer":
+                result = meterValue / 0.000000001;
+                break;
+            case "Mile":
+                result = meterValue / 1609.344;
+                break;
+            case "Yard":
+                result = meterValue / 0.9144;
+                break;
+            case "Foot":
+                result = meterValue / 0.3048;
+                break;
+            case "Inch":
+                result = meterValue / 0.0254;
+                break;
+            case "Nautical Mile":
+                result = meterValue / 1852.0;
+                break;
+        }
+
+        return result;
+
+//        double result = 0.0;
+//
+//        // Conversion rates relative to meter
+//        double kilometerToMeter = 1000.0;
+//        double meterToMeter = 1.0;
+//        double centimeterToMeter = 0.01;
+//        double millimeterToMeter = 0.001;
+//        double micrometerToMeter = 0.000001;
+//        double nanometerToMeter = 0.000000001;
+//        double mileToMeter = 1609.344;
+//        double yardToMeter = 0.9144;
+//        double footToMeter = 0.3048;
+//        double inchToMeter = 0.0254;
+//        double nauticalMileToMeter = 1852.0;
+//
+//        // Convert input value to meters
+//        switch (fromUnit) {
+//            case "Kilometer":
+//                value *= kilometerToMeter;
+//                break;
+//            case "Meter":
+//                value *= meterToMeter;
+//                break;
+//            case "Centimeter":
+//                value *= centimeterToMeter;
+//                break;
+//            case "Millimeter":
+//                value *= millimeterToMeter;
+//                break;
+//            case "Micrometer":
+//                value *= micrometerToMeter;
+//                break;
+//            case "Nanometer":
+//                value *= nanometerToMeter;
+//                break;
+//            case "Mile":
+//                value *= mileToMeter;
+//                break;
+//            case "Yard":
+//                value *= yardToMeter;
+//                break;
+//            case "Foot":
+//                value *= footToMeter;
+//                break;
+//            case "Inch":
+//                value *= inchToMeter;
+//                break;
+//            case "Nautical Mile":
+//                value *= nauticalMileToMeter;
+//                break;
+//        }
+//
+//        // Convert meters to the desired output unit
+//        switch (toUnit) {
+//            case "Kilometer":
+//                result = value / kilometerToMeter;
+//                break;
+//            case "Meter":
+//                result = value / mileToMeter;
+//                break;
+//            case "Centimeter":
+//                result = value / centimeterToMeter;
+//                break;
+//            case "Millimeter":
+//                result = value / millimeterToMeter;
+//                break;
+//            case "Micrometer":
+//                result = value / micrometerToMeter;
+//                break;
+//            case "Nanometer":
+//                result = value / nanometerToMeter;
+//                break;
+//            case "Mile":
+//                result = value / mileToMeter;
+//                break;
+//            case "Yard":
+//                result = value / yardToMeter;
+//                break;
+//            case "Foot":
+//                result = value / footToMeter;
+//                break;
+//            case "Inch":
+//                result = value / inchToMeter;
+//                break;
+//            case "Nautical Mile":
+//                result = value / nauticalMileToMeter;
+//                break;
+//        }
+//
+//        return result;
+    }
+
 }
