@@ -81,4 +81,41 @@ public class Validation {
         return builder.toString();
     }
 
+    public static String compareDateTimeAgo(Calendar selectedDateTime, Calendar currentDateTime) {
+        long differenceInMillis = currentDateTime.getTimeInMillis() - selectedDateTime.getTimeInMillis();
+
+        long secondsInMillis = 1000;
+        long minutesInMillis = secondsInMillis * 60;
+        long hoursInMillis = minutesInMillis * 60;
+        long daysInMillis = hoursInMillis * 24;
+        long weeksInMillis = daysInMillis * 7;
+        long monthsInMillis = daysInMillis * 30;
+        long yearsInMillis = daysInMillis * 365;
+
+        long years = differenceInMillis / yearsInMillis;
+        long months = differenceInMillis / monthsInMillis;
+        long weeks = differenceInMillis / weeksInMillis;
+        long days = differenceInMillis / daysInMillis;
+        long hours = differenceInMillis / hoursInMillis;
+        long minutes = differenceInMillis / minutesInMillis;
+        long seconds = differenceInMillis / secondsInMillis;
+
+        if (years > 0) {
+            return years + " year's ago";
+        } else if (months > 0) {
+            return months + " month's ago";
+        } else if (weeks > 0) {
+            return weeks + " week's ago";
+        } else if (days > 0) {
+            return days + " day's ago";
+        } else if (hours > 0) {
+            return hours + " hour's ago";
+        } else if (minutes > 0) {
+            return minutes + " minute's ago";
+        } else {
+            return seconds + " second's ago";
+        }
+    }
+
+
 }

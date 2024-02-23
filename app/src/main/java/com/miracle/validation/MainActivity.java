@@ -116,7 +116,8 @@ public class MainActivity extends AppCompatActivity {
                                     selectedDateTimeCalendar.setTime(selectedDate);
 
                                     String difference = Validation.compareDateTime(selectedDateTimeCalendar, Calendar.getInstance());
-                                    dateTime_result.setText(selectedDateTime + "\n" + difference);
+                                    String difference_ago = Validation.compareDateTimeAgo(selectedDateTimeCalendar, Calendar.getInstance());
+                                    dateTime_result.setText(selectedDateTime + "\n" + difference + "\n" + difference_ago);
                                 }
                             }
                         }, hour, minute, false);
