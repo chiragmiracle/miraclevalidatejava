@@ -160,10 +160,10 @@
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:background="@drawable/btn_shape"
                     android:fontFamily="@font/reg"
-                    android:paddingHorizontal="@dimen/_10sdp"
                     android:gravity="center"
                     android:hint="Enter Email ID."
                     android:inputType="textEmailAddress"
+                    android:paddingHorizontal="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textSize="@dimen/_14ssp" />
 
@@ -200,6 +200,119 @@
                     android:layout_marginVertical="@dimen/_15sdp"
                     android:fontFamily="@font/heading"
                     android:gravity="center"
+                    android:text="Number Converter"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/num_sp1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:background="@drawable/btn_shape"
+                            android:layout_marginBottom="@dimen/_3sdp"
+                            android:gravity="center" />
+
+                        <EditText
+                            android:id="@+id/num_et1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:background="@drawable/btn_shape"
+                            android:fontFamily="@font/reg"
+                            android:gravity="center"
+                            android:hint="Enter Number."
+                            android:inputType="number"
+                            android:paddingHorizontal="@dimen/_7sdp"
+                            android:singleLine="true"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="="
+                        android:textSize="@dimen/_30sdp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/num_sp2"
+                            android:layout_marginBottom="@dimen/_3sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:background="@drawable/btn_shape"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/num_et2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:background="@drawable/btn_shape"
+                            android:fontFamily="@font/reg"
+                            android:gravity="center"
+                            android:text="result"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:singleLine="true"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/num_convert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/bold"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:text="Convert"
+                    android:textSize="@dimen/_12ssp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:fontFamily="@font/heading"
+                    android:gravity="center"
                     android:text="Number To Word Converter"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15ssp" />
@@ -212,10 +325,10 @@
                     android:background="@drawable/btn_shape"
                     android:fontFamily="@font/reg"
                     android:gravity="center"
-                    android:paddingHorizontal="@dimen/_10sdp"
                     android:hint="Enter Number."
                     android:inputType="numberDecimal"
                     android:maxLength="10"
+                    android:paddingHorizontal="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textSize="@dimen/_14ssp" />
 
@@ -277,8 +390,8 @@
                     android:fontFamily="@font/reg"
                     android:gravity="center"
                     android:hint="Enter Word."
-                    android:paddingHorizontal="@dimen/_10sdp"
                     android:inputType="text"
+                    android:paddingHorizontal="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textSize="@dimen/_14ssp" />
 
@@ -321,10 +434,10 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/heading"
                     android:gravity="center"
                     android:text="@string/how_many_time_date_ago"

@@ -14,9 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-import android.window.OnBackInvokedDispatcher;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -64,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
     private SimpleDateFormat timeFormat;
     private Date currentDate;
 
+    //Numbe Convert
+    private AppCompatButton num_convert;
+    private Spinner num_sp1, num_sp2;
+    private EditText num_et1;
+    private TextView num_et2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +80,30 @@ public class MainActivity extends AppCompatActivity {
         numberToWordConvert();
         wordToNumberConvert();
         SelectDateTime();
+        numberConvert();
+    }
+
+    private void numberConvert() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.conversion_units, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        num_sp1.setAdapter(adapter);
+        num_sp2.setAdapter(adapter);
+        num_convert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String number = num_et1.getText().toString();
+                String unit1 = num_sp1.getSelectedItem().toString();
+                String unit2 = num_sp2.getSelectedItem().toString();
+                String result;
+                if (Validation.getMultiplier(unit1) < Validation.getMultiplier(unit2)) {
+                    result = String.valueOf(Validation.NumberConvert(number, unit1, unit2));
+                } else {
+                    result = Validation.NumberConvertStr(number, unit1, unit2);
+                }
+                num_et2.setText(result);
+            }
+        });
     }
 
     private void SelectDateTime() {
@@ -221,6 +249,11 @@ public class MainActivity extends AppCompatActivity {
         tv_word_result = findViewById(R.id.tv_word_result);
         select_DateTime = findViewById(R.id.select_DateTime);
         dateTime_result = findViewById(R.id.dateTime_result);
+        num_et1 = findViewById(R.id.num_et1);
+        num_et2 = findViewById(R.id.num_et2);
+        num_sp1 = findViewById(R.id.num_sp1);
+        num_sp2 = findViewById(R.id.num_sp2);
+        num_convert = findViewById(R.id.num_convert);
     }
 
     @SuppressLint("MissingSuperCall")

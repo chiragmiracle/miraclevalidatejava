@@ -6,7 +6,6 @@ import android.util.Patterns;
 import android.widget.EditText;
 
 import java.util.Calendar;
-import java.util.regex.Matcher;
 
 public class Validation {
 
@@ -117,5 +116,39 @@ public class Validation {
         }
     }
 
+    public static String NumberConvertStr(String number, String unit1, String unit2) {
+        double num = Double.parseDouble(number);
+        double multiplier = getMultiplier(unit1) / getMultiplier(unit2);
+        double result = num * multiplier;
+        return String.valueOf(Math.round(result));
+    }
 
+    public static double NumberConvert(String number, String unit1, String unit2) {
+        double num = Double.parseDouble(number);
+        double multiplier = getMultiplier(unit1) / getMultiplier(unit2);
+        return num * multiplier;
+    }
+
+    public static double getMultiplier(String unit) {
+        switch (unit) {
+            case "billion":
+                return 1e9;
+            case "crore":
+                return 1e7;
+            case "dozen":
+                return 12;
+            case "hundred":
+                return 100;
+            case "lakh":
+                return 1e5;
+            case "million":
+                return 1e6;
+            case "thousand":
+                return 1e3;
+            case "trillion":
+                return 1e12;
+            default:
+                return 1;
+        }
+    }
 }

@@ -4,4 +4,15 @@
         <item>+1 (US)</item>
         <item>+44 (UK)</item>
     </string-array>
+
+    <string-array name="conversion_units">
+        <item>billion</item>
+        <item>crore</item>
+        <item>dozen</item>
+        <item>hundred</item>
+        <item>lakh</item>
+        <item>million</item>
+        <item>thousand</item>
+        <item>trillion</item>
+    </string-array>
 </resources>
