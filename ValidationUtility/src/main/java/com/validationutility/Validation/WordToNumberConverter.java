@@ -1,4 +1,4 @@
-package com.validationutility;
+package com.validationutility.Validation;
 
 import java.util.HashMap;
 import java.util.Map;

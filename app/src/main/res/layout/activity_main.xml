@@ -6,6 +6,19 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ll_form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="@dimen/_15sdp"
+        android:background="@drawable/btn_shape"
+        android:fontFamily="@font/bold"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:paddingVertical="@dimen/_3sdp"
+        android:text="Form Validation"
+        android:textSize="@dimen/_12ssp" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -1,4 +1,4 @@
-package com.validationutility;
+package com.validationutility.Validation;
 
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;

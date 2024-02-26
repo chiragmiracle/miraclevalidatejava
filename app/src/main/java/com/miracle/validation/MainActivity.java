@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,10 +21,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import com.validationutility.IN_NumberToWord;
-import com.validationutility.NumberToWordConverter;
-import com.validationutility.Validation;
-import com.validationutility.WordToNumberConverter;
+import com.validationutility.Validation.IN_NumberToWord;
+import com.validationutility.Validation.NumberToWordConverter;
+import com.validationutility.Validation.Validation;
+import com.validationutility.Validation.WordToNumberConverter;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -84,12 +85,20 @@ public class MainActivity extends AppCompatActivity {
     private EditText num_et1;
     private TextView num_et2;
 
+    private AppCompatButton ll_form;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         initView();
+
+        ll_form.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, Form_Validation.class));
+        });
+
+
         MassConverter();
         lengthConverter();
         simpleteNumValidation();
@@ -317,6 +326,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        ll_form = findViewById(R.id.ll_form);
+
         mass_convert = findViewById(R.id.mass_convert);
         mass_et1 = findViewById(R.id.mass_et1);
         mass_sp1 = findViewById(R.id.mass_sp1);
