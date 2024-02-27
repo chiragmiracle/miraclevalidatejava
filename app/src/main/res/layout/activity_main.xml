@@ -43,6 +43,252 @@
                     android:layout_marginVertical="@dimen/_15sdp"
                     android:fontFamily="@font/heading"
                     android:gravity="center"
+                    android:text="Generate Random Password"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/pass_checkBox1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Capital" />
+
+                        <CheckBox
+                            android:id="@+id/pass_checkBox2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Small" />
+
+                        <CheckBox
+                            android:id="@+id/pass_checkBox3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Number" />
+
+                        <CheckBox
+                            android:id="@+id/pass_checkBox4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Special" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <RadioGroup
+                            android:id="@+id/pass_radioGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/pass_radioButton1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:checked="true"
+                                android:text="8" />
+
+                            <RadioButton
+                                android:id="@+id/pass_radioButton2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:text="10" />
+
+                            <RadioButton
+                                android:id="@+id/pass_radioButton3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:text="12" />
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/pass_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:alpha="0.8"
+                    android:fontFamily="@font/bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/pass_btnSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/bold"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:text="Generate"
+                    android:textSize="@dimen/_12ssp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:fontFamily="@font/heading"
+                    android:gravity="center"
+                    android:text="Volume Converter"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/volume_sp1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_marginBottom="@dimen/_3sdp"
+                            android:background="@drawable/btn_shape"
+                            android:entries="@array/units_array"
+                            android:gravity="center" />
+
+                        <EditText
+                            android:id="@+id/volume_et1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:background="@drawable/btn_shape"
+                            android:fontFamily="@font/reg"
+                            android:gravity="center"
+                            android:hint="Enter Mass."
+                            android:inputType="number"
+                            android:paddingHorizontal="@dimen/_7sdp"
+                            android:singleLine="true"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="="
+                        android:textSize="@dimen/_30sdp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/volume_sp2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_marginBottom="@dimen/_3sdp"
+                            android:background="@drawable/btn_shape"
+                            android:entries="@array/units_array"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/volume_et2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:background="@drawable/btn_shape"
+                            android:fontFamily="@font/reg"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:singleLine="true"
+                            android:text="result"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/volume_convert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@drawable/btn_shape"
+                    android:fontFamily="@font/bold"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:paddingVertical="@dimen/_3sdp"
+                    android:text="Convert"
+                    android:textSize="@dimen/_12ssp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:fontFamily="@font/heading"
+                    android:gravity="center"
                     android:text="Mass Converter"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15ssp" />
@@ -63,11 +309,11 @@
 
                         <Spinner
                             android:id="@+id/mass_sp1"
-                            android:entries="@array/units_array"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_45sdp"
-                            android:background="@drawable/btn_shape"
                             android:layout_marginBottom="@dimen/_3sdp"
+                            android:background="@drawable/btn_shape"
+                            android:entries="@array/units_array"
                             android:gravity="center" />
 
                         <EditText
@@ -101,11 +347,11 @@
 
                         <Spinner
                             android:id="@+id/mass_sp2"
-                            android:entries="@array/units_array"
-                            android:layout_marginBottom="@dimen/_3sdp"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_45sdp"
+                            android:layout_marginBottom="@dimen/_3sdp"
                             android:background="@drawable/btn_shape"
+                            android:entries="@array/units_array"
                             android:gravity="center" />
 
                         <TextView
@@ -116,9 +362,9 @@
                             android:background="@drawable/btn_shape"
                             android:fontFamily="@font/reg"
                             android:gravity="center"
-                            android:text="result"
                             android:paddingHorizontal="@dimen/_10sdp"
                             android:singleLine="true"
+                            android:text="result"
                             android:textSize="@dimen/_14ssp" />
 
                     </LinearLayout>
@@ -178,11 +424,11 @@
 
                         <Spinner
                             android:id="@+id/length_sp1"
-                            android:entries="@array/length_array"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_45sdp"
-                            android:background="@drawable/btn_shape"
                             android:layout_marginBottom="@dimen/_3sdp"
+                            android:background="@drawable/btn_shape"
+                            android:entries="@array/length_array"
                             android:gravity="center" />
 
                         <EditText
@@ -216,11 +462,11 @@
 
                         <Spinner
                             android:id="@+id/length_sp2"
-                            android:entries="@array/length_array"
-                            android:layout_marginBottom="@dimen/_3sdp"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_45sdp"
+                            android:layout_marginBottom="@dimen/_3sdp"
                             android:background="@drawable/btn_shape"
+                            android:entries="@array/length_array"
                             android:gravity="center" />
 
                         <TextView
@@ -231,9 +477,9 @@
                             android:background="@drawable/btn_shape"
                             android:fontFamily="@font/reg"
                             android:gravity="center"
-                            android:text="result"
                             android:paddingHorizontal="@dimen/_10sdp"
                             android:singleLine="true"
+                            android:text="result"
                             android:textSize="@dimen/_14ssp" />
 
                     </LinearLayout>
@@ -465,8 +711,8 @@
                             android:id="@+id/num_sp1"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_45sdp"
-                            android:background="@drawable/btn_shape"
                             android:layout_marginBottom="@dimen/_3sdp"
+                            android:background="@drawable/btn_shape"
                             android:gravity="center" />
 
                         <EditText
@@ -500,9 +746,9 @@
 
                         <Spinner
                             android:id="@+id/num_sp2"
-                            android:layout_marginBottom="@dimen/_3sdp"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_45sdp"
+                            android:layout_marginBottom="@dimen/_3sdp"
                             android:background="@drawable/btn_shape"
                             android:gravity="center" />
 
@@ -514,9 +760,9 @@
                             android:background="@drawable/btn_shape"
                             android:fontFamily="@font/reg"
                             android:gravity="center"
-                            android:text="result"
                             android:paddingHorizontal="@dimen/_10sdp"
                             android:singleLine="true"
+                            android:text="result"
                             android:textSize="@dimen/_14ssp" />
 
                     </LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="conversion_options">
+        <item>US liquid gallon</item>
+        <item>US liquid quart</item>
+        <item>US liquid pint</item>
+        <item>US legal cup</item>
+        <item>US fluid ounce</item>
+        <item>US tablespoon</item>
+        <item>US teaspoon</item>
+        <item>cubic meter</item>
+        <item>liter</item>
+        <item>milliliter</item>
+        <item>imperial gallon</item>
+        <item>imperial quart</item>
+        <item>imperial pint</item>
+        <item>imperial cup</item>
+        <item>imperial fluid ounce</item>
+        <item>imperial tablespoon</item>
+        <item>imperial teaspoon</item>
+        <item>cubic foot</item>
+        <item>cubic inch</item>
+    </string-array>
+</resources>

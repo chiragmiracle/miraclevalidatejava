@@ -7,11 +7,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -27,18 +31,32 @@ import com.validationutility.Validation.Validation;
 import com.validationutility.Validation.WordToNumberConverter;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
+    //Generate Random Password
+    CheckBox pass_chkCapital, pass_chkSmall, pass_chkNumber, pass_chkSpec;
+    AppCompatButton pass_btnSUbmit;
+    int MAX_CHAR = 0;
+    RadioGroup pass_radioGroup;
+    RadioButton pass_radiobtnm;
+    TextView pass_result;
 
-    //Number to Word Convert
+    //Mass Convert
     private AppCompatButton mass_convert;
     private EditText mass_et1;
     private TextView mass_et2;
     Spinner mass_sp1, mass_sp2;
+
+    //Volume Convert
+    private AppCompatButton volume_convert;
+    private EditText volume_et1;
+    private TextView volume_et2;
+    Spinner volume_sp1, volume_sp2;
 
     //Number to Word Convert
     private AppCompatButton length_convert;
@@ -98,7 +116,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, Form_Validation.class));
         });
 
-
+        RendomePassword();
+        volumeConverter();
         MassConverter();
         lengthConverter();
         simpleteNumValidation();
@@ -108,6 +127,113 @@ public class MainActivity extends AppCompatActivity {
         wordToNumberConvert();
         SelectDateTime();
         numberConvert();
+    }
+
+    private void RendomePassword() {
+        pass_btnSUbmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StringBuilder password = new StringBuilder();
+                ArrayList<Integer> passSel = new ArrayList<Integer>();
+                int selectedId = pass_radioGroup.getCheckedRadioButtonId();
+
+                pass_radiobtnm = findViewById(selectedId);
+
+                MAX_CHAR = Integer.parseInt(pass_radiobtnm.getText().toString());
+
+                if (!pass_chkCapital.isChecked() && !pass_chkSmall.isChecked() && !pass_chkNumber.isChecked() && !pass_chkSpec.isChecked()) {
+                    pass_result.setText("Please select at least one checkbox");
+                    Toast.makeText(MainActivity.this, "Please select at least one checkbox", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // when  UPPER CASE selected
+                if (pass_chkCapital.isChecked())
+                    passSel.add(1);
+
+                // when  LOWER CASE selected
+                if (pass_chkSmall.isChecked())
+                    passSel.add(3);
+
+                // when  Number  selected
+                if (pass_chkNumber.isChecked())
+                    passSel.add(0);
+
+                // when  Special selected
+                if (pass_chkSpec.isChecked())
+                    passSel.add(2);
+
+                for (int i = 1; i <= MAX_CHAR; ) {
+
+                    if (passSel.contains(0) && i <= MAX_CHAR) {
+                        password.append(Validation.getRandomPasswordCharacters(0));
+                        i++;
+                    }
+                    if (passSel.contains(1) && i <= MAX_CHAR) {
+                        password.append(Validation.getRandomPasswordCharacters(1));
+                        i++;
+                    }
+                    if (passSel.contains(2) && i <= MAX_CHAR) {
+                        password.append(Validation.getRandomPasswordCharacters(2));
+                        i++;
+                    }
+                    if (passSel.contains(3) && i <= MAX_CHAR) {
+                        password.append(Validation.getRandomPasswordCharacters(3));
+                        i++;
+                    }
+                }
+                pass_result.setText("your password is : " + password);
+                Log.e("CHIRAG_PASS", "your password is :>--> " + password + "");
+            }
+        });
+    }
+
+    private void volumeConverter() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.conversion_options, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        volume_sp1.setAdapter(adapter);
+        volume_sp2.setAdapter(adapter);
+        volume_sp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mainVolumeConverter();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        volume_sp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mainVolumeConverter();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        volume_convert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainVolumeConverter();
+            }
+        });
+    }
+
+    private void mainVolumeConverter() {
+        String unitFrom = volume_sp1.getSelectedItem().toString();
+        String unitTo = volume_sp2.getSelectedItem().toString();
+        String valueStr = volume_et1.getText().toString();
+        if (valueStr.isEmpty()) {
+            volume_et2.setText("result");
+            return;
+        }
+        double value = Double.parseDouble(valueStr);
+        String result;
+        result = String.valueOf(Validation.VolumeConvert(value, unitFrom, unitTo));
+        volume_et2.setText(result);
     }
 
     private void lengthConverter() {
@@ -327,6 +453,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         ll_form = findViewById(R.id.ll_form);
+
+        pass_chkCapital = findViewById(R.id.pass_checkBox1);
+        pass_chkSmall = findViewById(R.id.pass_checkBox2);
+        pass_chkNumber = findViewById(R.id.pass_checkBox3);
+        pass_chkSpec = findViewById(R.id.pass_checkBox4);
+        pass_radioGroup = findViewById(R.id.pass_radioGroup);
+        pass_btnSUbmit = findViewById(R.id.pass_btnSubmit);
+        pass_result = findViewById(R.id.pass_result);
+
+
+        volume_convert = findViewById(R.id.volume_convert);
+        volume_et1 = findViewById(R.id.volume_et1);
+        volume_sp1 = findViewById(R.id.volume_sp1);
+        volume_sp2 = findViewById(R.id.volume_sp2);
+        volume_et2 = findViewById(R.id.volume_et2);
 
         mass_convert = findViewById(R.id.mass_convert);
         mass_et1 = findViewById(R.id.mass_et1);

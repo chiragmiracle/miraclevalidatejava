@@ -1,11 +1,17 @@
 package com.validationutility.Validation;
 
+import android.content.Context;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.widget.EditText;
 
+import com.validationutility.R;
+
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class Validation {
 
@@ -279,4 +285,56 @@ public class Validation {
         return result;
     }
 
+    public static double VolumeConvert(double value, String factorFrom, String factorTo) {
+        Map<String, Double> conversionFactors = new HashMap<>();
+        conversionFactors.put("US liquid gallon", 1.0);
+        conversionFactors.put("US liquid quart", 4.0);
+        conversionFactors.put("US liquid pint", 8.0);
+        conversionFactors.put("US legal cup", 15.7725);
+        conversionFactors.put("US fluid ounce", 128.0);
+        conversionFactors.put("US tablespoon", 256.0);
+        conversionFactors.put("US teaspoon", 768.0);
+        conversionFactors.put("cubic meter", 0.00378541);
+        conversionFactors.put("liter", 3.78541);
+        conversionFactors.put("milliliter", 3785.41);
+        conversionFactors.put("imperial gallon", 0.832674);
+        conversionFactors.put("imperial quart", 3.3307);
+        conversionFactors.put("imperial pint", 6.66139);
+        conversionFactors.put("imperial cup", 13.3228);
+        conversionFactors.put("imperial fluid ounce", 133.228);
+        conversionFactors.put("imperial tablespoon", 213.165);
+        conversionFactors.put("imperial teaspoon", 639.494);
+        conversionFactors.put("cubic foot", 0.133681);
+        conversionFactors.put("cubic inch", 231.0);
+        Double unitFrom = conversionFactors.get(factorFrom);
+        Double unitTo = conversionFactors.get(factorTo);
+        if (unitFrom == null || unitTo == null) {
+            return -1;
+        }
+        return value * (unitTo / unitFrom);
+    }
+
+    public static String getRandomPasswordCharacters(int pos) {
+        String NUMBERS = "0123456789";
+        String UPPER_ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String LOWER_ALPHABETS = "abcdefghijklmnopqrstuvwxyz";
+        String SPECIALCHARACTERS = "@#$%&*";
+        Random randomNum = new Random();
+        StringBuilder randomChar = new StringBuilder();
+        switch (pos) {
+            case 0:
+                randomChar.append(NUMBERS.charAt(randomNum.nextInt(NUMBERS.length() - 1)));
+                break;
+            case 1:
+                randomChar.append(UPPER_ALPHABETS.charAt(randomNum.nextInt(UPPER_ALPHABETS.length() - 1)));
+                break;
+            case 2:
+                randomChar.append(SPECIALCHARACTERS.charAt(randomNum.nextInt(SPECIALCHARACTERS.length() - 1)));
+                break;
+            case 3:
+                randomChar.append(LOWER_ALPHABETS.charAt(randomNum.nextInt(LOWER_ALPHABETS.length() - 1)));
+                break;
+        }
+        return randomChar.toString();
+    }
 }
