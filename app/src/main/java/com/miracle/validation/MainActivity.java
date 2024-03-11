@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView volume_et2;
     Spinner volume_sp1, volume_sp2;
 
-    //Number to Word Convert
+    //length Convert
     private AppCompatButton length_convert;
     private EditText length_et1;
     private TextView length_et2;
@@ -81,15 +81,15 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatButton convert_validation;
     private EditText et_convert_number;
     private TextView tv_result;
-
-    //Number to Word Convert
-    private AppCompatButton convert_word_validation;
-    private EditText et_convert_word;
-    private TextView tv_word_result;
     Spinner country_numtoword;
     String str_numtoword;
 
-    //Number to Word Convert
+    //Word To Number  Convert
+    private AppCompatButton convert_word_validation;
+    private EditText et_convert_word;
+    private TextView tv_word_result;
+
+    //Time Date
     private AppCompatButton select_DateTime;
     private TextView dateTime_result;
     private Calendar calendar;
