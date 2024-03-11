@@ -190,7 +190,6 @@ public class MainActivity extends AppCompatActivity {
                 if (pass_chkSpec.isChecked()) passSel.add(2);
 
                 for (int i = 1; i <= MAX_CHAR; ) {
-
                     if (passSel.contains(0) && i <= MAX_CHAR) {
                         password.append(Validation.getRandomPasswordCharacters(0));
                         i++;
