@@ -112,7 +112,6 @@ private void RendomePassword() {
                 }
             }
             pass_result.setText("your password is : " + password);
-            Log.e("CHIRAG_PASS", "your password is :>--> " + password + "");
         }
     });
 }

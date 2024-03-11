@@ -43,12 +43,10 @@ public class Form_Validation extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (checkedId == R.id.rb_simple) {
-                    Log.e("CHIRAG", "ValidationStyle.BASIC: " + ValidationStyle.SIMPLE);
                     miracleValidation = new MiracleFormValidation(ValidationStyle.SIMPLE);
                     clearValidation();
                     addValidationForEditText(Form_Validation.this);
                 } else if (checkedId == R.id.rb_color) {
-                    Log.e("CHIRAG", "ValidationStyle.COLORATION: " + ValidationStyle.COLORATION);
                     miracleValidation = new MiracleFormValidation(ValidationStyle.COLORATION);
                     miracleValidation.setColor(Color.RED);
                     clearValidation();
