@@ -1,12 +1,10 @@
 package com.validationutility.Validation;
 
-import android.text.TextUtils;
-
 public class NumberToWordConverter {
     private static final String[] units = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
     private static final String[] teens = {"", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
     private static final String[] tens = {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
-    private static final String[] thousands = {"", "Thousand", "Million", "Billion"};
+    private static final String[] thousands = {"", "Thousand", "Million", "Billion", "Trillion"};
 
     public static String convertCountToWord(String number) {
         if (number == null || number.isEmpty())

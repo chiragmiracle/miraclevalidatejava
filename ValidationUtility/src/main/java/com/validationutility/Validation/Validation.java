@@ -2,7 +2,9 @@ package com.validationutility.Validation;
 
 import android.content.Context;
 import android.telephony.PhoneNumberUtils;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Patterns;
 import android.widget.EditText;
 
@@ -71,13 +73,79 @@ public class Validation {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
+    public static boolean validateName(String name) {
+        if (name == null || name.isEmpty()) {
+            return false;
+        }
+        return Patterns.EMAIL_ADDRESS.matcher(name).matches();
+    }
+
+    public static void validateAutoLowerCaseEmail(final EditText editText) {
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Not needed
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Not needed
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = editText.getText().toString();
+                String lowerCaseText = text.toLowerCase();
+                if (!text.equals(lowerCaseText)) {
+                    editText.removeTextChangedListener(this); // Remove listener to avoid recursive call
+                    editText.setText(lowerCaseText);
+                    editText.setSelection(lowerCaseText.length()); // Set cursor position to the end
+                    editText.addTextChangedListener(this); // Reattach listener
+                }
+            }
+        });
+    }
+
+    public static void validateAutoCapitalizeFirstLetter(final EditText editText) {
+        editText.addTextChangedListener(new TextWatcher() {
+            boolean isManualChange = false; // To prevent infinite loop
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Not needed
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Not needed
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (isManualChange) {
+                    return;
+                }
+
+                isManualChange = true;
+                String text = editText.getText().toString();
+                if (!text.isEmpty()) {
+                    String capitalizedText = text.substring(0, 1).toUpperCase() + text.substring(1);
+                    if (!text.equals(capitalizedText)) {
+                        editText.setText(capitalizedText);
+                        editText.setSelection(capitalizedText.length());
+                    }
+                }
+                isManualChange = false;
+            }
+        });
+    }
+
     public static String compareDateTime(Calendar selectedDateTime, Calendar currentDateTime) {
         long diffMillis = currentDateTime.getTimeInMillis() - selectedDateTime.getTimeInMillis();
         long seconds = diffMillis / 1000;
         long minutes = seconds / 60;
         long hours = minutes / 60;
         long days = hours / 24;
-
         long remainingHours = hours % 24;
         long remainingMinutes = minutes % 60;
         long remainingSeconds = seconds % 60;
@@ -337,4 +405,5 @@ public class Validation {
         }
         return randomChar.toString();
     }
+
 }

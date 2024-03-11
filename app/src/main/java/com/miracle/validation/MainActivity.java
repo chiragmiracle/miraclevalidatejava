@@ -103,6 +103,14 @@ public class MainActivity extends AppCompatActivity {
     private EditText num_et1;
     private TextView num_et2;
 
+    //Email Auto LowerCas Convert
+    private AppCompatButton email_lower_validation;
+    private EditText et_email_lower;
+
+    //name first latter capital Convert
+    private AppCompatButton name_cap_validation;
+    private EditText et_name_cap;
+
     private AppCompatButton ll_form;
 
     @Override
@@ -116,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, Form_Validation.class));
         });
 
+        nameFirstLatterCapital();
         RendomePassword();
         volumeConverter();
         MassConverter();
@@ -123,10 +132,36 @@ public class MainActivity extends AppCompatActivity {
         simpleteNumValidation();
         countryCodeNumValidation();
         emailValidation();
+        emailLowerValidation();
         numberToWordConvert();
         wordToNumberConvert();
         SelectDateTime();
         numberConvert();
+
+    }
+
+    private void nameFirstLatterCapital() {
+        Validation.validateAutoCapitalizeFirstLetter(et_name_cap);
+        name_cap_validation.setOnClickListener(v -> {
+            if (TextUtils.isEmpty(et_name_cap.getText().toString())) {
+                Toast.makeText(getApplicationContext(), "Enter Your Name", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void emailLowerValidation() {
+        Validation.validateAutoLowerCaseEmail(et_email_lower);
+        email_lower_validation.setOnClickListener(v -> {
+            if (TextUtils.isEmpty(et_email_lower.getText().toString())) {
+                Toast.makeText(getApplicationContext(), "Enter Email ID", Toast.LENGTH_LONG).show();
+            } else {
+                if (Validation.validateEmail(et_email_lower.getText().toString())) {
+                    Toast.makeText(getApplicationContext(), "Valid Email", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Invalid Email", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     private void RendomePassword() {
@@ -453,6 +488,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         ll_form = findViewById(R.id.ll_form);
+
+        email_lower_validation = findViewById(R.id.email_lower_validation);
+        et_email_lower = findViewById(R.id.et_email_lower);
+
+        et_name_cap = findViewById(R.id.et_name_cap);
+        name_cap_validation = findViewById(R.id.name_cap_validation);
 
         pass_chkCapital = findViewById(R.id.pass_checkBox1);
         pass_chkSmall = findViewById(R.id.pass_checkBox2);

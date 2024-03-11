@@ -19,10 +19,10 @@ public class ValidationHolder {
     private EditText mConfirmationEditText;
     private TextInputLayout mTextInputLayout;
     private TextInputLayout mConfirmationTextInputLayout;
-    private View mView;
     private Pattern mPattern;
-    private NumericRange mNumericRange;
     private String mErrMsg;
+    private View mView;
+    private NumericRange mNumericRange;
     private SimpleCustomValidation mSimpleCustomValidation;
     private CustomValidation mCustomValidation;
     private CustomValidationCallback mCustomValidationCallback;
@@ -34,21 +34,9 @@ public class ValidationHolder {
         mErrMsg = errMsg;
     }
 
-    public ValidationHolder(EditText editText, NumericRange numericRange, String errMsg) {
-        mEditText = editText;
-        mNumericRange = numericRange;
-        mErrMsg = errMsg;
-    }
-
     public ValidationHolder(EditText confirmationEditText, EditText editText, String errMsg) {
         mConfirmationEditText = confirmationEditText;
         mEditText = editText;
-        mErrMsg = errMsg;
-    }
-
-    public ValidationHolder(EditText editText, SimpleCustomValidation simpleCustomValidation, String errMsg) {
-        mEditText = editText;
-        mSimpleCustomValidation = simpleCustomValidation;
         mErrMsg = errMsg;
     }
 
@@ -58,32 +46,11 @@ public class ValidationHolder {
         mErrMsg = errMsg;
     }
 
-    public ValidationHolder(TextInputLayout textInputLayout, NumericRange numericRange, String errMsg) {
-        mTextInputLayout = textInputLayout;
-        mNumericRange = numericRange;
-        mErrMsg = errMsg;
-    }
-
     public ValidationHolder(TextInputLayout confirmationTextInputLayout, TextInputLayout textInputLayout, String errMsg) {
         mConfirmationTextInputLayout = confirmationTextInputLayout;
         mTextInputLayout = textInputLayout;
         mErrMsg = errMsg;
     }
-
-    public ValidationHolder(TextInputLayout textInputLayout, SimpleCustomValidation simpleCustomValidation, String errMsg) {
-        mTextInputLayout = textInputLayout;
-        mSimpleCustomValidation = simpleCustomValidation;
-        mErrMsg = errMsg;
-    }
-
-    public ValidationHolder(View view, CustomValidation customValidation, CustomValidationCallback customValidationCallback, CustomErrorReset customErrorReset, String errMsg) {
-        mView = view;
-        mCustomValidation = customValidation;
-        mCustomValidationCallback = customValidationCallback;
-        mCustomErrorReset = customErrorReset;
-        mErrMsg = errMsg;
-    }
-
     public boolean isRegexType() {
         return mPattern != null;
     }
