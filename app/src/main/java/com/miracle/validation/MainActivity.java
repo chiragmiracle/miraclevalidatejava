@@ -106,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
     //Email Auto LowerCas Convert
     private AppCompatButton email_lower_validation;
     private EditText et_email_lower;
+    private TextView email_lower_result;
 
     //name first latter capital Convert
-    private AppCompatButton name_cap_validation;
     private EditText et_name_cap;
 
     private AppCompatButton ll_form;
@@ -142,23 +142,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void nameFirstLatterCapital() {
         Validation.validateAutoCapitalizeFirstLetter(et_name_cap);
-        name_cap_validation.setOnClickListener(v -> {
-            if (TextUtils.isEmpty(et_name_cap.getText().toString())) {
-                Toast.makeText(getApplicationContext(), "Enter Your Name", Toast.LENGTH_LONG).show();
-            }
-        });
     }
 
     private void emailLowerValidation() {
         Validation.validateAutoLowerCaseEmail(et_email_lower);
         email_lower_validation.setOnClickListener(v -> {
             if (TextUtils.isEmpty(et_email_lower.getText().toString())) {
-                Toast.makeText(getApplicationContext(), "Enter Email ID", Toast.LENGTH_LONG).show();
+                email_lower_result.setText("Enter Email ID");
             } else {
                 if (Validation.validateEmail(et_email_lower.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "Valid Email", Toast.LENGTH_LONG).show();
+                    email_lower_result.setText("Valid Email");
                 } else {
-                    Toast.makeText(getApplicationContext(), "Invalid Email", Toast.LENGTH_LONG).show();
+                    email_lower_result.setText("Invalid Email");
                 }
             }
         });
@@ -183,20 +178,16 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 // when  UPPER CASE selected
-                if (pass_chkCapital.isChecked())
-                    passSel.add(1);
+                if (pass_chkCapital.isChecked()) passSel.add(1);
 
                 // when  LOWER CASE selected
-                if (pass_chkSmall.isChecked())
-                    passSel.add(3);
+                if (pass_chkSmall.isChecked()) passSel.add(3);
 
                 // when  Number  selected
-                if (pass_chkNumber.isChecked())
-                    passSel.add(0);
+                if (pass_chkNumber.isChecked()) passSel.add(0);
 
                 // when  Special selected
-                if (pass_chkSpec.isChecked())
-                    passSel.add(2);
+                if (pass_chkSpec.isChecked()) passSel.add(2);
 
                 for (int i = 1; i <= MAX_CHAR; ) {
 
@@ -224,8 +215,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void volumeConverter() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.conversion_options, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.conversion_options, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         volume_sp1.setAdapter(adapter);
         volume_sp2.setAdapter(adapter);
@@ -272,8 +262,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void lengthConverter() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.length_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.length_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         length_sp1.setAdapter(adapter);
         length_sp2.setAdapter(adapter);
@@ -292,8 +281,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void MassConverter() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.units_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.units_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mass_sp1.setAdapter(adapter);
         mass_sp2.setAdapter(adapter);
@@ -491,9 +479,9 @@ public class MainActivity extends AppCompatActivity {
 
         email_lower_validation = findViewById(R.id.email_lower_validation);
         et_email_lower = findViewById(R.id.et_email_lower);
+        email_lower_result = findViewById(R.id.email_lower_result);
 
         et_name_cap = findViewById(R.id.et_name_cap);
-        name_cap_validation = findViewById(R.id.name_cap_validation);
 
         pass_chkCapital = findViewById(R.id.pass_checkBox1);
         pass_chkSmall = findViewById(R.id.pass_checkBox2);
@@ -550,19 +538,15 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
         alertDialogBuilder.setTitle("Exit");
-        alertDialogBuilder
-                .setMessage("Do you really want to exit?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        MainActivity.this.finish();
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
+        alertDialogBuilder.setMessage("Do you really want to exit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                MainActivity.this.finish();
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
 
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();

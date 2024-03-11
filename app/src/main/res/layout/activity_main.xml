@@ -205,6 +205,18 @@
                     android:text="Check Validation"
                     android:textSize="@dimen/_12ssp" />
 
+                <TextView
+                    android:id="@+id/email_lower_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:fontFamily="@font/reg"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp" />
+
             </LinearLayout>
 
             <View
@@ -238,23 +250,12 @@
                     android:fontFamily="@font/reg"
                     android:gravity="center"
                     android:hint="Enter Email ID."
+                    android:layout_marginBottom="@dimen/_15sdp"
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textSize="@dimen/_14ssp" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/name_cap_validation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginVertical="@dimen/_15sdp"
-                    android:background="@drawable/btn_shape"
-                    android:fontFamily="@font/bold"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:paddingVertical="@dimen/_3sdp"
-                    android:text="Check Validation"
-                    android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
 
