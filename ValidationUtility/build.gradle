@@ -42,7 +42,7 @@ publishing {
             url uri("https://maven.pkg.github.com/chiragmiracle/miraclevalidatejava")
             credentials {
                 username = "chiragmiracle"
-                password = "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"
+                password = "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"
             }
         }
     }
