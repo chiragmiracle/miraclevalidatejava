@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.library'
-    id 'maven-publish'
 }
 
 android {
@@ -25,23 +24,6 @@ android {
     }
 }
 
-
-publishing {
-    publications {
-        bar(MavenPublication) {
-            groupId = 'com.miracle'
-            artifactId = 'ValidationUtility'
-            version = '1.0.0'
-            artifact("$buildDir/outputs/aar/ValidationUtility-release.aar")
-        }
-    }
-
-    repositories {
-        maven {
-            url "$buildDir/repo"
-        }
-    }
-}
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
