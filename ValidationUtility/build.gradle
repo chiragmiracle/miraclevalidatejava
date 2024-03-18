@@ -32,7 +32,7 @@ publishing {
         release(MavenPublication) {
             groupId "com.miracle.validationutility"
             artifactId "ValidationUtility"
-            version "1.0.1"
+            version "1.0.0-beta"
             artifact("$buildDir/outputs/aar/ValidationUtility-release.aar")
         }
     }
@@ -42,7 +42,7 @@ publishing {
             url uri("https://maven.pkg.github.com/chiragmiracle/miraclevalidatejava")
             credentials {
                 username = "chiragmiracle"
-                password = "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"
+                password = "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"
             }
         }
     }
