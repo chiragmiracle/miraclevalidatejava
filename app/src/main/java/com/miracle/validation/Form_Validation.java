@@ -15,9 +15,9 @@ import androidx.annotation.IdRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import com.validationutility.FormValidation.MiracleFormValidation;
-import com.validationutility.FormValidation.ValidationStyle;
-import com.validationutility.FormValidation.utility.RegexTemplate;
+import com.miracle.validationutility.FormValidation.MiracleFormValidation;
+import com.miracle.validationutility.FormValidation.ValidationStyle;
+import com.miracle.validationutility.FormValidation.utility.RegexTemplate;
 
 
 public class Form_Validation extends AppCompatActivity {

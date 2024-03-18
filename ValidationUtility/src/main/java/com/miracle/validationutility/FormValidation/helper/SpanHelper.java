@@ -1,4 +1,4 @@
-package com.validationutility.FormValidation.helper;
+package com.miracle.validationutility.FormValidation.helper;
 
 import static android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE;
 

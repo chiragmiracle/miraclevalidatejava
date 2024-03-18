@@ -1,4 +1,4 @@
-package com.validationutility.FormValidation.utility;
+package com.miracle.validationutility.FormValidation.utility;
 
 public class RegexTemplate {
 

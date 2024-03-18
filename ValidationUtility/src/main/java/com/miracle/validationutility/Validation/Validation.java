@@ -1,4 +1,4 @@
-package com.validationutility.Validation;
+package com.miracle.validationutility.Validation;
 
 import android.content.Context;
 import android.telephony.PhoneNumberUtils;
@@ -8,7 +8,7 @@ import android.text.TextWatcher;
 import android.util.Patterns;
 import android.widget.EditText;
 
-import com.validationutility.R;
+import com.miracle.validationutility.R;
 
 import java.util.Calendar;
 import java.util.HashMap;

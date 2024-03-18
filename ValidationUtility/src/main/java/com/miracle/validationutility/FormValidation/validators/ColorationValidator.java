@@ -1,4 +1,4 @@
-package com.validationutility.FormValidation.validators;
+package com.miracle.validationutility.FormValidation.validators;
 
 import android.graphics.Color;
 import android.text.Editable;
@@ -7,11 +7,11 @@ import android.widget.EditText;
 
 import androidx.core.util.Pair;
 
-import com.validationutility.FormValidation.MiracleFormValidation;
-import com.validationutility.FormValidation.ValidationHolder;
-import com.validationutility.FormValidation.helper.RangeHelper;
-import com.validationutility.FormValidation.helper.SpanHelper;
-import com.validationutility.FormValidation.utility.ValidationCallback;
+import com.miracle.validationutility.FormValidation.MiracleFormValidation;
+import com.miracle.validationutility.FormValidation.ValidationHolder;
+import com.miracle.validationutility.FormValidation.helper.RangeHelper;
+import com.miracle.validationutility.FormValidation.helper.SpanHelper;
+import com.miracle.validationutility.FormValidation.utility.ValidationCallback;
 
 import java.util.ArrayList;
 import java.util.HashMap;

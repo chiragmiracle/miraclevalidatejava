@@ -1,4 +1,4 @@
-package com.validationutility.FormValidation.exception;
+package com.miracle.validationutility.FormValidation.exception;
 
 public class BadLayoutException extends RuntimeException {
 

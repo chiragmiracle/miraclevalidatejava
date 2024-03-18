@@ -1,9 +1,10 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
 }
 
 android {
-    namespace 'com.validationutility'
+    namespace 'com.miracle.validationutility'
     compileSdk 34
 
     defaultConfig {
@@ -21,6 +22,24 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+publishing {
+    publications {
+        bar(MavenPublication) {
+            groupId = 'com.miracle'
+            artifactId = 'ValidationUtility'
+            version = '1.0.0'
+            artifact("$buildDir/outputs/aar/ValidationUtility-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            url "$buildDir/repo"
+        }
     }
 }
 

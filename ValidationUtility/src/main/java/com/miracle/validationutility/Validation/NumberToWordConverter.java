@@ -1,4 +1,4 @@
-package com.validationutility.Validation;
+package com.miracle.validationutility.Validation;
 
 public class NumberToWordConverter {
     private static final String[] units = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};

@@ -1,17 +1,17 @@
-package com.validationutility.FormValidation.validators;
+package com.miracle.validationutility.FormValidation.validators;
 
 import android.app.Activity;
 import android.view.View;
 import android.widget.EditText;
 
-import com.validationutility.FormValidation.MiracleFormValidation;
-import com.validationutility.FormValidation.ValidationHolder;
-import com.validationutility.FormValidation.model.NumericRange;
-import com.validationutility.FormValidation.utility.ValidationCallback;
-import com.validationutility.FormValidation.utility.custom.CustomErrorReset;
-import com.validationutility.FormValidation.utility.custom.CustomValidation;
-import com.validationutility.FormValidation.utility.custom.CustomValidationCallback;
-import com.validationutility.FormValidation.utility.custom.SimpleCustomValidation;
+import com.miracle.validationutility.FormValidation.MiracleFormValidation;
+import com.miracle.validationutility.FormValidation.ValidationHolder;
+import com.miracle.validationutility.FormValidation.model.NumericRange;
+import com.miracle.validationutility.FormValidation.utility.ValidationCallback;
+import com.miracle.validationutility.FormValidation.utility.custom.CustomErrorReset;
+import com.miracle.validationutility.FormValidation.utility.custom.CustomValidation;
+import com.miracle.validationutility.FormValidation.utility.custom.CustomValidationCallback;
+import com.miracle.validationutility.FormValidation.utility.custom.SimpleCustomValidation;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;

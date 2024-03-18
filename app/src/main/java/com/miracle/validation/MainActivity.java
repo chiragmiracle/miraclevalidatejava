@@ -25,10 +25,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import com.validationutility.Validation.IN_NumberToWord;
-import com.validationutility.Validation.NumberToWordConverter;
-import com.validationutility.Validation.Validation;
-import com.validationutility.Validation.WordToNumberConverter;
+import com.miracle.validationutility.Validation.IN_NumberToWord;
+import com.miracle.validationutility.Validation.NumberToWordConverter;
+import com.miracle.validationutility.Validation.Validation;
+import com.miracle.validationutility.Validation.WordToNumberConverter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

@@ -1,10 +1,10 @@
-package com.validationutility.FormValidation;
+package com.miracle.validationutility.FormValidation;
 
 import android.app.Activity;
 
-import com.validationutility.FormValidation.validators.BasicValidator;
-import com.validationutility.FormValidation.validators.ColorationValidator;
-import com.validationutility.FormValidation.validators.Validator;
+import com.miracle.validationutility.FormValidation.validators.BasicValidator;
+import com.miracle.validationutility.FormValidation.validators.ColorationValidator;
+import com.miracle.validationutility.FormValidation.validators.Validator;
 
 import java.util.regex.Pattern;
 

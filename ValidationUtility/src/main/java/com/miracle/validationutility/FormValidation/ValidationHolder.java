@@ -1,14 +1,14 @@
-package com.validationutility.FormValidation;
+package com.miracle.validationutility.FormValidation;
 
 import android.view.View;
 import android.widget.EditText;
 
-import com.validationutility.FormValidation.exception.BadLayoutException;
-import com.validationutility.FormValidation.model.NumericRange;
-import com.validationutility.FormValidation.utility.custom.CustomErrorReset;
-import com.validationutility.FormValidation.utility.custom.CustomValidation;
-import com.validationutility.FormValidation.utility.custom.CustomValidationCallback;
-import com.validationutility.FormValidation.utility.custom.SimpleCustomValidation;
+import com.miracle.validationutility.FormValidation.exception.BadLayoutException;
+import com.miracle.validationutility.FormValidation.model.NumericRange;
+import com.miracle.validationutility.FormValidation.utility.custom.CustomErrorReset;
+import com.miracle.validationutility.FormValidation.utility.custom.CustomValidation;
+import com.miracle.validationutility.FormValidation.utility.custom.CustomValidationCallback;
+import com.miracle.validationutility.FormValidation.utility.custom.SimpleCustomValidation;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.regex.Pattern;

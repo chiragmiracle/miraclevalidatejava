@@ -1,4 +1,4 @@
-package com.validationutility.FormValidation.model;
+package com.miracle.validationutility.FormValidation.model;
 
 import androidx.annotation.Nullable;
 

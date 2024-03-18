@@ -1,4 +1,4 @@
-package com.validationutility.Validation;
+package com.miracle.validationutility.Validation;
 
 import android.text.TextUtils;
 

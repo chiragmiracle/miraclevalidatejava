@@ -1,4 +1,4 @@
-package com.validationutility.FormValidation.utility.custom;
+package com.miracle.validationutility.FormValidation.utility.custom;
 
 public interface SimpleCustomValidation {
 

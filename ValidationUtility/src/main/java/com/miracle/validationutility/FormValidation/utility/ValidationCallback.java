@@ -1,6 +1,6 @@
-package com.validationutility.FormValidation.utility;
+package com.miracle.validationutility.FormValidation.utility;
 
-import com.validationutility.FormValidation.ValidationHolder;
+import com.miracle.validationutility.FormValidation.ValidationHolder;
 
 import java.util.regex.Matcher;
 

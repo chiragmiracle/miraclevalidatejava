@@ -1,4 +1,4 @@
-package com.validationutility.FormValidation;
+package com.miracle.validationutility.FormValidation;
 
 public enum ValidationStyle {
 
