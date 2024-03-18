@@ -33,7 +33,7 @@ publishing {
             groupId "com.miracle"
             artifactId "validationutility"
             version "1.0.0"
-            artifact("$buildDir/outputs/aar/ValidationUtility-release.aar")
+//            artifact("$buildDir/outputs/aar/ValidationUtility-release.aar")
         }
     }
 //    repositories {
